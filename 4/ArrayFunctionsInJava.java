@@ -20,13 +20,26 @@ public class ArrayFunctionsInJava {
         return res;
     }
 
+    public static boolean is_polindrome(String arr[]){
+        int end = arr.length - 1;
+        for(int i=0; i<arr.length/2; i++){
+            if(!arr[i].equals(arr[end-i])){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 
     public static void main(String[] args){
         int array[] = {101, 303, 404, 505, 707};
+        String[] str_arr = {"hello", "world", "and", "world", "hello"};
         System.out.println("Sum of arr elements: " + sum_array(array));
 
         System.out.println("Reverse of arr: " + Arrays.toString(reverse_array(array)));
         
+        System.out.println("Is polindrome: " + is_polindrome(str_arr));
     }
     
 }
