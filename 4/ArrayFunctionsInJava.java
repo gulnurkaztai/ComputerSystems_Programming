@@ -31,15 +31,47 @@ public class ArrayFunctionsInJava {
         return true;
     }
 
+    public static int[] remove_dups(int arr[]) {
+        int size = arr.length;
+
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = 0; j < size - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    
+        int[] temp = new int[size];
+        int j = 0;
+    
+        for (int i = 0; i < size - 1; i++) {
+            if (arr[i] != arr[i + 1]) {
+                temp[j++] = arr[i];
+            }
+        }
+        temp[j++] = arr[size - 1];
+
+        int[] uniqueElements = new int[j];
+        System.arraycopy(temp, 0, uniqueElements, 0, j);
+
+    
+        return uniqueElements;
+    }
+    
 
     public static void main(String[] args){
-        int array[] = {101, 303, 404, 505, 707};
+        int array[] = {101, 303, 404, 505, 707, 100, 100};
         String[] str_arr = {"hello", "world", "and", "world", "hello"};
         System.out.println("Sum of arr elements: " + sum_array(array));
 
         System.out.println("Reverse of arr: " + Arrays.toString(reverse_array(array)));
         
         System.out.println("Is polindrome: " + is_polindrome(str_arr));
+
+        System.out.print("Array after removing duplicates: " + Arrays.toString(remove_dups(array)));
     }
     
 }
