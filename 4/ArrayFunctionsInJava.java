@@ -60,10 +60,27 @@ public class ArrayFunctionsInJava {
     
         return uniqueElements;
     }
+
+    public static int[] move_zeroes(int[] arr){
+        int j = 0;
+        for(int i : arr){
+            if(i != 0){
+                arr[j++] = i;
+            }
+        }
+
+        if(j<arr.length){
+            for(int i = j; i<arr.length;i++){
+                arr[i] = 0;
+            }
+        }
+        return arr;
+    }
     
 
     public static void main(String[] args){
         int array[] = {101, 303, 404, 505, 707, 100, 100};
+        int arr[] = {1,5,0,0,7};
         String[] str_arr = {"hello", "world", "and", "world", "hello"};
         System.out.println("Sum of arr elements: " + sum_array(array));
 
@@ -72,6 +89,8 @@ public class ArrayFunctionsInJava {
         System.out.println("Is polindrome: " + is_polindrome(str_arr));
 
         System.out.print("Array after removing duplicates: " + Arrays.toString(remove_dups(array)));
+
+        System.out.println("Array with zeroes at the end: " + Arrays.toString(move_zeroes(arr)));
     }
     
 }
