@@ -23,9 +23,22 @@ class ArrayFunctionsInPython:
                 return False
         return True
     
+    @staticmethod
+    def remove_dups(list):
+        size = len(list)
 
+        for i in range(size - 1):
+            for j in range(size - i - 1):
+                if list[j] > list[j+1]:
+                    list[j], list[j + 1] = list[j + 1], list[j]
 
-
+        temp = []
+        for i in range(size-1):
+            if list[i] != list[i + 1]:
+                temp.append(list[i])
+        
+        temp.append(list[size - 1])
+        return temp
 
 
     if __name__ == "__main__":
@@ -34,4 +47,4 @@ class ArrayFunctionsInPython:
         print("Sum of arr elements: ", sum_list(my_list))
         print("Reverse of arr: ", reverse_list(my_list))
         print("Is polindrome: ", is_polindrome(my_str))
-    
+        print("Array after removing duplicates: ", remove_dups(my_list))
