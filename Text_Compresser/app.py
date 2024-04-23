@@ -33,7 +33,9 @@ reversed_dictionary = {index: word for word, index in mapped_dictionary.items()}
 with open("output.sc", "r") as file:
     indices = file.read().split()
 
-for index in indices:
-    word = reversed_dictionary[int(index)]
-    print(word)
+with open("readable.txt", "w") as file:
+    for index in indices:
+        word = reversed_dictionary[int(index)]
+        # print(word)
+        file.write(word + " ")
 
