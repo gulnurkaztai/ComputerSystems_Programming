@@ -4,8 +4,8 @@ import re
 # print("Current Working Directory:", os.getcwd())
 
 with open("./Text_Compresser/input.txt") as file:
-    content = file.read()
-    words = re.findall(r"\b[a-zA-Z0-9\-]+\b", content)
+    words = file.read().split()
+    # words = re.findall(r"\b[a-zA-Z0-9\-]+\b", content)
     # print(words)
 
 mapped_dictionary = {}
